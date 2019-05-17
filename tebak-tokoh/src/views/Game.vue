@@ -21,14 +21,24 @@ export default {
         name: 'Soekarno'
       },
       {
-        image: "https://vignette.wikia.nocookie.net/naruto/images/0/09/Naruto_newshot.png/revision/latest?cb=20170621101134",
-        name: 'Naruto'
+        image: "https://images.tempo.co/?id=528628&width=720",
+        name: 'Abraham Lincoln'
       },{
-        image: "https://i.pinimg.com/originals/77/20/c4/7720c4e73a3c44332458a4f3c93724ec.jpg",
-        name: 'Sasuke'
+        image: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg",
+        name: 'Albert Einstein'
       },{
-        image: "https://i.pinimg.com/originals/05/d6/c3/05d6c3b5a880a7ab8bb37a09e48a4995.jpg",
-        name: 'Sakura'
+        image: "https://www.sahistory.org.za/sites/default/files/bio_pics/nelson_rolihlahla_mandela.jpg",
+        name: 'Nelson Mandela'
+      },{
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Bundesarchiv_Bild_183-S33882%2C_Adolf_Hitler_retouched.jpg/230px-Bundesarchiv_Bild_183-S33882%2C_Adolf_Hitler_retouched.jpg",
+        name: "Adolf Hitler"
+
+      },{
+         image: "https://cdn.britannica.com/s:300x300/17/5017-004-3754A6AC.jpg",
+         name: "James Watt"
+      },{
+        image: "https://ichef.bbci.co.uk/news/304/media/images/70159000/jpg/_70159327_napoleoncleaned.jpg",
+        name: "Napoleon Bonaparte"
       }]
 
     }
