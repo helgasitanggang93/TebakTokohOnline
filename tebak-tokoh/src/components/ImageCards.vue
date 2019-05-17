@@ -1,6 +1,8 @@
 <template>
-<div>
+  <div>
     <div class="container">
+
+
         <div class="row">
             <div class="col">
                 <div class="card" style="width:400px">
@@ -27,48 +29,91 @@
                 </h3>
             </div>
         </div>
+        <div class="col">
+          <h3>{{score}}</h3>
+          <ul>
+            <li v-for="(player,index) in this.thisRoom.players">{{player.name}} : {{player.score}}</li>
+          </ul>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
 let audio = new Audio('https://storage.googleapis.com/upload-mini-wp-photo/04%20All%20of%20Us.mp3');
 audio.play();
+import db from "@/api/firebaseAPI";
+import { constants } from "crypto";
 export default {
-    props: ['data'],
-    name: 'image-cards',
-    data(){
-        return {
-            counter : 0,
-            answer: '',
-            score: 0,
-            thanks: false,
-            animateThanks : 'https://media.giphy.com/media/l0IypwpsgNs8GYREY/giphy.gif'
+  props: ["data"],
+  name: "image-cards",
+
+  data() {
+    return {
+      counter: 0,
+      answer: "",
+      score: 0,
+      thisRoom: ""
+    };
+  },
+  created() {
+    db.collection("rooms")
+      .doc(this.$route.params.id)
+      .onSnapshot(
+        doc => {
+          this.thisRoom = doc.data();
+        },
+        err => {
+          console.log(err);
         }
-    },
-    methods: {
-        next(){
-            console.log(this.answer)
-            console.log(this.data[this.counter].name)
-            if(this.answer === this.data[this.counter].name){
-                let corSound = document.getElementById("audiocor")
+      );
+  },
+
+  methods: {
+    next() {
+      console.log(this.answer);
+      console.log(this.data[this.counter].name);
+      if (this.answer === this.data[this.counter].name) {
+        console.log("benar");
+         let corSound = document.getElementById("audiocor")
                 corSound.play()
                 console.log('benar')
-                this.score++
-                this.counter++
-                if(this.counter === this.data.length){
-                    this.thanks = true
-                }
+
+        this.score++;
+        this.counter++;
+        const newPlayers = this.thisRoom.players
+        newPlayers.find((element)=>{
+            if(element.name === localStorage.username){
+                element.score = this.score
             }
-            else{
-                let sound = document.getElementById("audio")
-                sound.play()
-                console.log('salah')
-         
-            }
-            this.answer = ''
+        })
+
+        db.collection('rooms')
+        .doc(this.$route.params.id)
+        .update({
+            players:newPlayers
+        })
+        .then(()=>{
+            console.log('success')
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+
+        if (this.counter === this.data.length) {
+          this.counter = 0;
         }
+      } else {
+        let sound = document.getElementById("audio")
+                sound.play()
+        console.log("salah");
+        this.score--;
+      }
+
+      this.answer = "";
     }
-}
+  }
+};
 </script>
 

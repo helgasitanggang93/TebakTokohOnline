@@ -1,20 +1,22 @@
 <template>
   <div class="container">
     <ImageCards v-bind:data="data"/>
+
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import ImageCards from '@/components/ImageCards.vue'
+
+import ImageCards from "@/components/ImageCards.vue";
 
 export default {
-  name: 'home',
+  name: "home",
   components: {
     ImageCards
-    
   },
-  data(){
+  
+  data() {
     return {
       data : [{
         image: "https://upload.wikimedia.org/wikipedia/commons/0/01/Presiden_Sukarno.jpg",
@@ -56,9 +58,11 @@ export default {
         hint: "Ilmuwan penemu penisilin",
         name: "alexander fleming"
 
-      }]
+      }],
+       thisRoom:''
 
     }
   }
-}
+
+};
 </script>

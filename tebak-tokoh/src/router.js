@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Lobby from "./views/Lobby"
+import Waiting from "./views/Waiting"
 import Landing from "./views/Landing.vue"
 
 Vue.use(Router);
@@ -23,6 +24,11 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "./views/About.vue")
+    },
+    {
+      path: "/waiting/:id",
+      name: "waiting",
+      component: Waiting,
     },
     {
       path: "/lobby",

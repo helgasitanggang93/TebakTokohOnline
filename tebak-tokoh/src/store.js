@@ -47,12 +47,13 @@ export default new Vuex.Store({
           name: roomName,
           players: [{ name: localStorage.getItem('username'), score: 0 }],
           winner: '',
-          createdAt: new Date()
+          createdAt: new Date(),
+          status:false
         })
         .then((docs) => {
           console.log(docs)
           localStorage.setItem('idRoom', docs._key.path.segments[1])
-          router.push(`/game/${docs._key.path.segments[1]}`)
+          router.push(`/waiting/${docs._key.path.segments[1]}`)
           context.dispatch('getAllRoom')
         })
         .catch((err) => {
@@ -73,7 +74,7 @@ export default new Vuex.Store({
         .then(() => {
           context.dispatch('getAllRoom')
           console.log(roomId,'=====================')
-          router.push(`/game/${roomId}`)
+          router.push(`/waiting/${roomId}`)
         })
         .catch((err) => {
           console.log(err)
