@@ -3,8 +3,7 @@ import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Lobby from "./views/Lobby"
 import Waiting from "./views/Waiting"
-
-
+import Landing from "./views/Landing.vue"
 
 Vue.use(Router);
 
@@ -41,5 +40,10 @@ export default new Router({
       name: 'game',
       component: () => import(/* webpackChunkName: "game" */ './views/Game.vue'),
     },
+    {
+      path:'/landing',
+      name:'landing',
+      component:Landing
+    }
   ]
 });
