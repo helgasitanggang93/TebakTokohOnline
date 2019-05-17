@@ -4,6 +4,10 @@
         <div class="row">
             <div class="col">
                 <div class="card" style="width:400px">
+                    <form v-on:submit.prevent='next'>
+                        <div v-if="thanks"> <img :src="animateThanks" alt=""> </div>
+                    <img class="card-img-top" :src="data[counter].image" alt="Card image">
+                        <label for="email">Siapakah tokoh Diatas:</label>
                     <div class="col">
                         <form v-on:submit.prevent='next'>
                         <img class="card-img-top img-fluid" :src="data[counter].image" alt="Card image">
@@ -35,7 +39,9 @@ export default {
         return {
             counter : 0,
             answer: '',
-            score: 0
+            score: 0,
+            thanks: false,
+            animateThanks : 'https://media.giphy.com/media/l0IypwpsgNs8GYREY/giphy.gif'
         }
     },
     methods: {
@@ -47,11 +53,10 @@ export default {
                 this.score++
                 this.counter++
                 if(this.counter === this.data.length){
-                    this.counter = 0
+                    this.thanks = true
                 }
             }
             else{
-                console.log('salah')
                 this.score--
             }
             
