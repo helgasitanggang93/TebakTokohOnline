@@ -8,9 +8,17 @@
                         <div v-if="thanks"> <img :src="animateThanks" alt=""> </div>
                     <img class="card-img-top" :src="data[counter].image" alt="Card image">
                         <label for="email">Siapakah tokoh Diatas:</label>
+                    <div class="col">
+                        <form v-on:submit.prevent='next'>
+                        <img class="card-img-top img-fluid" :src="data[counter].image" alt="Card image">
+                        <label> {{data[counter].hint}} </label><br>
+                        <label>Siapakah tokoh Diatas?</label>
                      <input v-model="answer" type="text" class="form-control">
                      <button type="submit">Next</button>
                     </form>
+
+                    </div>
+                    
                 </div>
             </div>
             <div class="col">
