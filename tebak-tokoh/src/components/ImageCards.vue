@@ -28,6 +28,8 @@
 </template>
 
 <script>
+let audio = new Audio('https://storage.googleapis.com/upload-mini-wp-photo/04%20All%20of%20Us.mp3');
+audio.play();
 export default {
     props: ['data'],
     name: 'image-cards',
@@ -43,6 +45,8 @@ export default {
             console.log(this.answer)
             console.log(this.data[this.counter].name)
             if(this.answer === this.data[this.counter].name){
+                let corSound = document.getElementById("audiocor")
+                corSound.play()
                 console.log('benar')
                 this.score++
                 this.counter++
@@ -51,10 +55,11 @@ export default {
                 }
             }
             else{
+                let sound = document.getElementById("audio")
+                sound.play()
                 console.log('salah')
                 this.score--
             }
-            
             this.answer = ''
         }
     }
