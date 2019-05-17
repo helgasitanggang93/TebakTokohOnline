@@ -1,37 +1,42 @@
 <template>
-  <div class="container">
-    <ImageCards v-bind:data="data"/>
+    <div class="center text-center">
+    <h1 data-heading="Tebak Gambar">
+		<span contenteditable data-heading="Tebak Gambar">Tebak Gambar</span>
+	</h1>
+   <div class="row">
+      <form class="form-input col-5 mx-auto" @submit.prevent="register">
+      <label class="sr-only"></label>
+      <input type="text" class="form-control" v-model="username" required>
+    </form>
+   </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import ImageCards from '@/components/ImageCards.vue'
 
 export default {
-  name: 'home',
-  components: {
-    ImageCards
-    
-  },
+  name: "home",
   data(){
-    return {
-      data : [{
-        image: "https://upload.wikimedia.org/wikipedia/commons/0/01/Presiden_Sukarno.jpg",
-        name: 'Soekarno'
-      },
-      {
-        image: "https://vignette.wikia.nocookie.net/naruto/images/0/09/Naruto_newshot.png/revision/latest?cb=20170621101134",
-        name: 'Naruto'
-      },{
-        image: "https://i.pinimg.com/originals/77/20/c4/7720c4e73a3c44332458a4f3c93724ec.jpg",
-        name: 'Sasuke'
-      },{
-        image: "https://i.pinimg.com/originals/05/d6/c3/05d6c3b5a880a7ab8bb37a09e48a4995.jpg",
-        name: 'Sakura'
-      }]
+    return{
+      username:''
+    }
+  },
+  created(){
+    console.log('ini rooomnya')
+  },
+  methods:{
+    register(){
+       localStorage.setItem('username', this.username);
+       this.$store.commit('register',this.username)
+       this.$store.dispatch('getAllRoom')
+       this.$router.push('/lobby')
 
     }
   }
-}
+};
 </script>
+<style>
+
+
+</style>
