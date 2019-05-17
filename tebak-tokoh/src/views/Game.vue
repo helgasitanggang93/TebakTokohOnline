@@ -18,27 +18,44 @@ export default {
     return {
       data : [{
         image: "https://upload.wikimedia.org/wikipedia/commons/0/01/Presiden_Sukarno.jpg",
-        name: 'Soekarno'
+        hint: "Presiden Pertama Indonesia",
+        name: 'soekarno'
       },
       {
         image: "https://images.tempo.co/?id=528628&width=720",
-        name: 'Abraham Lincoln'
+        hint: "Presiden Amerika ke 16 yang menghapuskan perbudakan",
+        name: 'abraham lincoln'
       },{
         image: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg",
-        name: 'Albert Einstein'
+        hint: "Pengemuka teori relativitas",
+        name: 'albert einstein'
       },{
         image: "https://www.sahistory.org.za/sites/default/files/bio_pics/nelson_rolihlahla_mandela.jpg",
-        name: 'Nelson Mandela'
+        hint: "Seorang revolusioner antiapartheid Afrika Selatan",
+        name: 'nelson mandela'
       },{
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Bundesarchiv_Bild_183-S33882%2C_Adolf_Hitler_retouched.jpg/230px-Bundesarchiv_Bild_183-S33882%2C_Adolf_Hitler_retouched.jpg",
-        name: "Adolf Hitler"
+        hint: "Kanselir jerman 1933-1945 dan pemimpin nazi",
+        name: "adolf hitler"
 
       },{
          image: "https://cdn.britannica.com/s:300x300/17/5017-004-3754A6AC.jpg",
-         name: "James Watt"
+         hint: "Penemu Mesin Uap",
+         name: "james watt"
       },{
         image: "https://ichef.bbci.co.uk/news/304/media/images/70159000/jpg/_70159327_napoleoncleaned.jpg",
-        name: "Napoleon Bonaparte"
+        hint : "Pemimpin perancis yang kalah di battle of waterloo",
+        name:   "napoleon bonaparte"
+      },{
+         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Guglielmo_Marconi.jpg/220px-Guglielmo_Marconi.jpg",
+         hint : "Penemu Radio",
+         name: "guglielmo marconi"
+
+      },{
+        image: "https://www.sciencehistory.org/sites/default/files/styles/rte_full_width/public/historical_profile/bio-fleming-lab-bmsquibb.jpg?itok=Q8oC_HjC",
+        hint: "Ilmuwan penemu penisilin",
+        name: "alexander fleming"
+
       }]
 
     }
